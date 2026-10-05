@@ -1,8 +1,0 @@
-╭──────────── SYSTEM MONITOR ────────────╮
-│ Kernel       : Linux 6.x               │
-│ Uptime       : 03:42:17                │
-│ CPU          : 8 cores                 │
-│ CPU usage    : 17.4%                   │
-│ RAM          : 7.2 / 15.5 GiB          │
-│ Processes    : 183                     │
-╰────────────────────────────────────────╯
