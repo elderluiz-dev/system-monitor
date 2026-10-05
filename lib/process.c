@@ -13,8 +13,8 @@ void process_monitor(int *proc){
 
     while(fgets(buffer, sizeof(buffer), file) != NULL){
         if(sscanf(buffer, "%*f %*f %*f %*d/%d", proc) == 1){
-            return;
             fclose(file);
+            return;
         }
     }
 

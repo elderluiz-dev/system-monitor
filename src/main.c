@@ -10,7 +10,7 @@ int main(){
         char kernel[30];
         int proc;
         unsigned long long usage;
-        long memory = memory_monitor();
+        long memory = available_memory_monitor();
         double memory_gb = (double)memory / (1024.0 * 1024.0);
         double uptime = uptime_monitor();
 
@@ -47,8 +47,5 @@ int main(){
         );
 
     }
-
-    sleep(0.5);
-    
     return 0;
 }

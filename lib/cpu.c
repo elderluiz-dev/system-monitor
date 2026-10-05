@@ -35,6 +35,7 @@ void cpu_usage_monitor(unsigned long long *usage){
         }
     }
 
+    fclose(file);
     sleep(1);
     file = fopen("/proc/stat", "r");
     if(file == NULL){
@@ -77,6 +78,8 @@ void cpu_usage_monitor(unsigned long long *usage){
 
     *usage = (100.0 * busy_delta) / total_delta;
 
+    fclose(file);
+    return;
 }
 
 void cpu_monitor(char *cpu){

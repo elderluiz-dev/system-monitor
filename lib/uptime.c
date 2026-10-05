@@ -15,7 +15,6 @@ double uptime_monitor(){
         sscanf(buffer, "%lf", &uptime);
     }
 
-    return uptime;
     fclose(file);
-
+    return uptime;
 }

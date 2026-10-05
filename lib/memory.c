@@ -3,7 +3,7 @@
 
 #include "includes.h"
 
-long memory_monitor(){
+long available_memory_monitor(){
     FILE *file = fopen("/proc/meminfo", "r");
 
     if(file == NULL){
@@ -16,8 +16,8 @@ long memory_monitor(){
 
     while (fgets(buffer, sizeof(buffer), file) != NULL) {
         if((sscanf(buffer, "MemAvailable: %ld kb", &memory)) == 1){
-            return memory;
             fclose(file);
+            return memory;
         }
     }
 
