@@ -1,1 +1,0 @@
-gcc -Ilib/ lib/kernel.c lib/uptime.c lib/memory.c lib/cpu.c src/main.c -o main
