@@ -3,24 +3,32 @@
 
 #include "includes.h"
 
-long available_memory_monitor(){
+void available_memory_monitor(long *memory_used, long *memory_total){
     FILE *file = fopen("/proc/meminfo", "r");
 
     if(file == NULL){
         printf("Erro de fopen!\n");
-        return 1;
+        return;
     }
 
     char buffer[256];
-    long memory;
+    long memory_available;
 
     while (fgets(buffer, sizeof(buffer), file) != NULL) {
-        if((sscanf(buffer, "MemAvailable: %ld kb", &memory)) == 1){
-            fclose(file);
-            return memory;
+        if((sscanf(buffer, "MemAvailable: %ld kb", &memory_available)) == 1){
+            continue;
+        }
+        if((sscanf(buffer, "MemTotal: %ld kb", memory_total)) == 1){
+            continue;
         }
     }
 
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        
+    }
+
+    *memory_used = *memory_total - memory_available;
+
     fclose(file);
-    return 1;
+    return;
 }
